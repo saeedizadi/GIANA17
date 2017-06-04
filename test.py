@@ -1,8 +1,9 @@
-import torc
+import torch
 import torch.nn as nn
 import torch.utils.data as data
 import numpy as np
 from torch.autograd import Variable
+import matplotlib.pyplot as plt
 
 from giana import GIANA
 
@@ -14,5 +15,8 @@ data_loader = data.DataLoader(dset, batch_size=1)
 
 for batch_index, (inputs, targets) in enumerate(data_loader):
     inputs = Variable(inputs)
-    print np.shape(inputs.data.numpy())
+    a = inputs.data.numpy()
+    imgplot = plt.imshow(a[0,:,:,:])
+    plt.show()
+
 print len(dset)
